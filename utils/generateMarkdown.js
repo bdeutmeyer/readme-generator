@@ -1,37 +1,49 @@
-//Sets value of licenseInfo as badge url and info url to be passed to generateMarkdown()
+//Sets value of licenseBadge as badge url to be passed to generateMarkdown()
 let licenseBadge;
-function pickLicenseBadge(license) {
-  if (license == 'MIT') {
-    licenseBadge = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
-  } else if (license == 'IBM') {
-    licenseBadge = `![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)`
-  } else if (license == 'Mozilla') {
-    licenseBadge = `![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)  `
-  } else if (license == 'ISC') {
-    licenseBadge = `![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)`
-  } else {
-    licenseBadge = ''
+const pickLicenseBadge = (license) => {
+  switch(license) {
+    case 'MIT':
+      licenseBadge = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`;
+      break;
+    case 'IBM':
+      licenseBadge = `![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)`;
+      break;
+    case 'Mozilla':
+      licenseBadge = `![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)`;
+      break;
+    case 'ISC':
+      licenseBadge = `![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)`;
+      break;
+    case '':
+      licenseBadge = '';
+      break;
   }
 }
 
+//Sets value of licenseLink as license info url to be passed to generateMarkdown()
 let licenseLink;
-function pickLicenseLink(license) {
-  if (license == 'MIT') {
-    licenseLink = `[License Details](https://opensource.org/licenses/MIT)`
-  } else if (license == 'IBM') {
-    licenseLink = `[License Details](https://opensource.org/licenses/IPL-1.0)`
-  } else if (license == 'Mozilla') {
-    licenseLink = `![License Details](https://opensource.org/licenses/MPL-2.0)`
-  } else if (license == 'ISC') {
-    licenseLink = `[License Details](https://opensource.org/licenses/ISC)`
-  } else {
-    licenseLink = ''
+const pickLicenseLink = (license) => {
+  switch(license) {
+    case 'MIT':
+      licenseLink = `[License Details](https://opensource.org/licenses/MIT)`;
+      break;
+    case 'IBM':
+      licenseLink = `[License Details](https://opensource.org/license/ibmpl-php/)`;
+      break;
+    case 'Mozilla':
+      licenseLink = `[License Details](https://opensource.org/licenses/MPL-2.0)`
+      break;
+    case 'ISC':
+      licenseLink = `[License Details](https://opensource.org/licenses/ISC)`;
+      break;
+    case '':
+      licenseLink = '';
+      break;
   }
 }
-
 
 //Generates the markdown file, fills in fields with user input
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
   pickLicenseBadge(data.license);
   pickLicenseLink(data.license);
   return `# ${data.title}

@@ -5,7 +5,7 @@ const prompts = require('./utils/prompts.js');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 //Function to wrap inquirer so that it's no longer in the global scope
-function init() {
+const init = () => {
   inquirer
   .prompt(prompts)
   .then((response) => {
