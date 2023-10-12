@@ -1,56 +1,72 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-let licenseInfo;
-function renderLicenseBadge(license) {
+//Sets value of licenseInfo as badge url and info url to be passed to generateMarkdown()
+let licenseBadge;
+function pickLicenseBadge(license) {
   if (license == 'MIT') {
-    licenseInfo = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
-    [License Details](https://opensource.org/licenses/MIT)`
+    licenseBadge = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
   } else if (license == 'IBM') {
-    licenseInfo = `![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)  
-    [License Details](https://opensource.org/licenses/IPL-1.0)`
+    licenseBadge = `![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)`
   } else if (license == 'Mozilla') {
-    licenseInfo = `![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)  
-    [License Details](https://opensource.org/licenses/MPL-2.0)`
+    licenseBadge = `![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)  `
   } else if (license == 'ISC') {
-    licenseInfo = `![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)  
-    [License Details](https://opensource.org/licenses/ISC)`
+    licenseBadge = `![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)`
   } else {
-    licenseInfo = ''
+    licenseBadge = ''
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-// function renderLicenseLink() {
+let licenseLink;
+function pickLicenseLink(license) {
+  if (license == 'MIT') {
+    licenseLink = `[License Details](https://opensource.org/licenses/MIT)`
+  } else if (license == 'IBM') {
+    licenseLink = `[License Details](https://opensource.org/licenses/IPL-1.0)`
+  } else if (license == 'Mozilla') {
+    licenseLink = `![License Details](https://opensource.org/licenses/MPL-2.0)`
+  } else if (license == 'ISC') {
+    licenseLink = `[License Details](https://opensource.org/licenses/ISC)`
+  } else {
+    licenseLink = ''
+  }
+}
 
-// }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-// function renderLicenseSection() {
-
-// }
-
-// TODO: Create a function to generate markdown for README
+//Generates the markdown file, fills in fields with user input
 function generateMarkdown(data) {
-  renderLicenseBadge(data.license);
+  pickLicenseBadge(data.license);
+  pickLicenseLink(data.license);
   return `# ${data.title}
-  ## Description
+  ${licenseBadge}
+  ## Table of Contents
+  1. [Description](#description)
+  2. [Installation](#installation)
+  3. [Usage](#usage)
+  4. [License](#license)
+  5. [Contributing](#contributing)
+  6. [Tests](#tests)
+  7. [Questions](#questions)
+  <a name="description"></a>
+  ## Description 
   ${data.description}
-  ## Installation
+  <a name="installation"></a>
+  ## Installation 
   ${data.installation}
-  ## Usage
+  <a name="usage"></a>
+  ## Usage 
   ${data.directions}
-  ## License
-  ${licenseInfo}
-  ## Contributing
+  <a name="license"></a>
+  ## License 
+  This application is covered under the ${data.license} license.  
+  ${licenseLink}
+  <a name="contributing"></a>
+  ## Contributing 
   ${data.contributing}
-  ## Tests
+  <a name="tests"></a>
+  ## Tests 
   ${data.test}
-  ## Contact
-  ${data.contact}
-  ## Repository link
-  ${data.repo}
+  <a name="questions"></a>
+  ## Questions  
+  This application's code repository can be found at https://github.com/${data.username}/${data.repo}  
+  Please contact me at ${data.contact} with any additional questions.
 `;
 }
 
