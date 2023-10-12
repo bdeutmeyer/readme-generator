@@ -1,8 +1,8 @@
+//Dependencies
 const fs = require('fs');
 const inquirer = require('inquirer');
 const prompts = require('./utils/prompts.js');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-// const writeToFile = require('./utils/writeToFile.js');
 
 //Function to wrap inquirer so that it's no longer in the global scope
 function init() {

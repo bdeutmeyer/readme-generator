@@ -6,10 +6,12 @@ const questionsArray = [
   'What kind of license would you like your project to have?',
   'Please provide instructions for how to contribute to this project.',
   'What command should a user use to test your application?',
-  'How would you like to be contacted with questions about your application?',
-  'What is the link to this project\'s code repository?'
+  'How would you like to be contacted with questions about your application? Please provide email address/phone number/other.',
+  'What is your GitHub username?',
+  'What is the name of the repository for this project?'
 ];
 
+//Prompts to be passed into inquirer
 const prompts = [
   {
     type: 'input',
@@ -55,6 +57,11 @@ const prompts = [
   {
     type: 'input',
     message: questionsArray[8],
+    name: 'username',
+  },
+  {
+    type: 'input',
+    message: questionsArray[9],
     name: 'repo',
   },
 ];
