@@ -31,3 +31,5 @@
   ## Questions  
   This application's code repository can be found at https://github.com/bdeutmeyer/readme-generator  
   Please contact me at bethdeutmeyer@gmail.com with any additional questions.
+  ## Credits
+  This application used starter code provided by the curriculum.
