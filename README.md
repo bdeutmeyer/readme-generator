@@ -35,3 +35,5 @@
   This application used starter code provided by the curriculum.
   ## Technologies Used
   This application utilizes Node.js and the inquirer package as a dependency.
+  ## Demo Video Link
+  https://drive.google.com/file/d/1SmFc7tXpSFIf0miZZj6f6qk3WSkRZh6-/view
